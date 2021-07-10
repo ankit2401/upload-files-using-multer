@@ -24,7 +24,7 @@ app.get('/', function(req,res) {
 
 app.use(express.static(__dirname + '/public'));
 app.use('/css', express.static(__dirname + 'public/css'));
-app.use(express.static(__dirname + '/uploads'));
+//app.use(express.static(__dirname + '/uploads'));
 
 var storage = multer.diskStorage({
 	destination: function (req,file,cb) {
@@ -45,10 +45,9 @@ app.post('/uploadfile', upload.single('myFile'), (req, res, next) => {
 		return next(error)
 	}
 	else{
-		const pic = req.file.path
-		res.send('you have uploaded this image: <br><img src="$(req.file.path)" /><br><a href="./">upload another image</a>');
-	//	req.flash('message', 'Uploaded successfully...!');
-	//	res.redirect('/');
+	//	res.send('you have uploaded this image: <br><img src="$(req.file.path)" /><br><a href="./">upload another image</a>');
+		req.flash('message', 'Uploaded successfully...!');
+		res.redirect('/');
 	}
 
 })
