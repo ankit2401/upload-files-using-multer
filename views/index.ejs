@@ -1,0 +1,22 @@
+
+<head>
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>File Upload</h1>
+        <form action="/uploadfile" enctype="multipart/form-data" method="POST">
+            <div class="input-group">
+                <label for='files'> Select files </label>
+                <input type="file" name="myFile">
+            </div>
+            <button class="submit-btn" type='submit'> Upload a file </button>
+        </form>
+    </div>
+	<% if(message.length > 0) { %>
+	<div class = "alert-success">
+	<%= message %>
+	</div>
+	<% } %>
+</body>
+
